@@ -8,8 +8,8 @@ MCUFRIEND_kbv tft;
 #endif
 
 
-uint16_t identifier; //will be used for reading the ID of tft
-#define BLACK   0x0000 // colors declaration which are defined in the library
+uint16_t identifier; // 색 상수 선언
+#define BLACK   0x0000
 #define BLUE    0x001F
 #define RED     0xF800
 #define GREEN   0x07E0
@@ -21,13 +21,13 @@ uint16_t identifier; //will be used for reading the ID of tft
 
 void setup() {
   // put your setup code here, to run once:
-  tft.begin(9600); // this will start the tft lcd a command 
-  tft.reset(); // resets the LCD
+  tft.begin(9600); // 디스플레이 9600 통신속도
+  tft.reset(); // LCD 화면 리셋
   identifier = tft.readID(); // here is where we used the declared identifier above.
   tft.begin(identifier); //ok we start the tft screen again
-   tft.setRotation(1); // here I set the rotation to landscape, you can used 0 = portrait, 1 = landscape
-   tft.fillScreen(BLACK); // this will fill your screen with color red
-   tft.setCursor(60, 90); // this command wil set the coordinate of the text in your tft screen , I am using 320x240 screen. 
+   tft.setRotation(1); // 화면 가로모드 세로모드 설정
+   tft.fillScreen(BLACK); // 화면 배경 색
+   tft.setCursor(60, 90); // 화면에글자지정, I am using 320x240 screen. 
   
  
 
@@ -36,13 +36,13 @@ void setup() {
 
 void loop() { // to enable color changing text I add command lines in the function void loop to loop the process as stated below this line
   // put your main code here, to run repeatedly:
-  tft.setCursor(20, 20);      
-  tft.setTextColor(WHITE);
-  tft.setTextSize(3);
-  tft.print("CO2 : ");
-  tft.setCursor(20, 60);   
-  tft.setTextColor(WHITE);
-  tft.setTextSize(3);
-  tft.print("SOONGOO : ");
-  delay(800);
+  tft.setCursor(20, 20);      // X:20 Y:20에
+  tft.setTextColor(WHITE);    // 글자색 하얀색
+  tft.setTextSize(3);         // 글자 크기 3
+  tft.print("CO2 : ");        // "CO2 : " 화면에 출력
+  tft.setCursor(20, 60);      // X:20 Y:60에
+  tft.setTextColor(WHITE);    // 글자색 하얀색
+  tft.setTextSize(3);         // 글자 크기 3
+  tft.print("SOONGOO : ");    // 출력 테스트를 위하여 "SOONGOO : " 출력
+  delay(1000);                // 1초 대기
 }
